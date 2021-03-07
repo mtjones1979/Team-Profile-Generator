@@ -1,4 +1,4 @@
-const Engineer = require("../lib/Engineer");
+const Engineer = require("./lib/Engineer");
 
 describe("Engineer", () => {
     describe("github", () => {
@@ -18,7 +18,7 @@ describe("Engineer", () => {
     describe("getRole()", () => {
         it("should return 'Engineer' through getRole()", () => {
             const test = "Engineer";
-            const obj = new Engineer("Michael", 1, "m@jones.com", "GitHubUsername", test);
+            const obj = new Engineer("Michael", 1, "m@jones.com", "GitHubUsername");
             expect(obj.getRole()).toBe(test);
         });
     });
