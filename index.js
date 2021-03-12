@@ -5,7 +5,7 @@ const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-const generatedHTML = require("./template.js");
+const generateHTML = require("./template.js");
 
 let finalTeam = [];
 
@@ -60,21 +60,21 @@ function addManager () {
         {
             type: "list",
             message: 'Would you like to add more Team Members?',
-            name: "addMember",
+            name: "role",
             choices: ["Yes, add an Engineer", "Yes, add an Intern", "No, my team is complete"]
         }
     ])
     .then(function (data) {
-        switch(data.addMember){
+        switch(data.role){
             case "Yes, add an Engineer":
                 addEngineer();
                 break;
             case "Yes, add an Intern":
                 addIntern();
                 break;
-            // case "No, my team is complete":
-            //     // teamBuild();
-            //     break;
+            case "No, my team is complete":
+                generateHTML();
+                break;
             default:
                 // teamBuild();
         }
@@ -145,7 +145,8 @@ const addIntern = () => {
         finalTeam.push(teamMember)
         addTeamMember()
     });
- }
+    fs.writeFile('index.html', generateHTML(data), function(err){})
+}
   }
 //  function teamBuild(){
 //       fs.writeFile('index.html', generatedHTML(data), function(err){});
