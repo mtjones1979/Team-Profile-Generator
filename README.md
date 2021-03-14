@@ -18,12 +18,13 @@
   ## Usage
   
   * Application Video:
-  [Video Link]()
+  [Video Link](https://drive.google.com/file/d/1zI8VcRUQJQ33mHtiS3WIXN18_sAI_pig/view)
   
   * Screenshots:
   ![alt text](https://user-images.githubusercontent.com/74076318/111055434-6bb6a180-843b-11eb-95a7-431e981888ba.png)
   ![alt text](https://user-images.githubusercontent.com/74076318/111055314-52f9bc00-843a-11eb-9887-dc73d738e46a.png)
   ![alt text](https://user-images.githubusercontent.com/74076318/111055354-9f44fc00-843a-11eb-851e-6419dc7931bb.png)
+  ![alt text](https://user-images.githubusercontent.com/74076318/111080052-a1ef3200-84ca-11eb-8d8f-e7a19919242e.png)
 
   ## Installation
   NPM with dependencies from Jest, FS, and Inquirer
