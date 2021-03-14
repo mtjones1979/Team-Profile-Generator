@@ -9,49 +9,39 @@ const generateHTML = require("./template.js");
 
 let finalTeam = [];
 
-function startingPrompt () {
-    inquirer.prompt([
-        {
-            message: "Managers: Welcome to your Team Generator, to start building your team please pick a Team Name:",
-            name: "teamname"
-        }
-    ])
-    .then(function(data){
-        const teamName = data.teamname
-        finalTeam.push(teamName)
-        addManager();
-    })
-}
+// function teamProfile() {
 function addManager () {
     inquirer.prompt ([
         {
             type: 'input',
-            name: 'name',
+            name: 'teamName',
+            message: 'Managers: Welcome to your Team Generator, to start building your team please pick a Team Name:',
+        },
+        {
+            type: 'input',
+            name: 'manName',
             message: 'What is your name?',
         },
         {
             type: 'input',
-            name: 'id',
+            name: 'manId',
             message: 'Please enter your ID number:',
         },
         {
             type: 'input',
-            name: 'email',
+            name: 'manEmail',
             message: 'Please enter your email:',
         },
         {
             type: 'number',
-            name: 'officeNumber',
+            name: 'manOfficeNumber',
             message: 'Please enter your Office Number:',
         },
     ])
         .then(function (data) {
-            const name = data.name
-            const id = data.id
-            const email = data.email
-            const officeNumber = data.officeNumber
-            const teamMember = new Manager(name, id, email, officeNumber)
-            finalTeam.push(teamMember)
+            const manager = new Manager(data.teamName, data.manName, data.manId, data.manEmail, data.manOfficeNumber);
+            finalTeam.push(manager)
+            console.log(manager)
             addTeamMember();
         })
 }
@@ -72,44 +62,39 @@ function addManager () {
             case "Yes, add an Intern":
                 addIntern();
                 break;
-            case "No, my team is complete":
-                generateHTML();
-                break;
             default:
-                // teamBuild();
-        }
+                teamBuild();
+                console.log("You have created your team!");
+            }
     })
  
   function addEngineer () {
     inquirer.prompt ([
         {
             type: 'input',
-            name: 'name',
+            name: 'enName',
             message: "What is your Engineer's name?",
         },
         {
             type: 'input',
-            name: 'id',
+            name: 'enId',
             message: 'Please enter their ID number:',
         },
         {
             type: 'input',
-            name: 'email',
+            name: 'enEmail',
             message: 'Please enter their email:',
         },
         {
             type: 'input',
-            name: 'github',
+            name: 'enGithub',
             message: 'Please enter their GitHub username:',
         },
     ]) 
     .then(function (data) {
-        const name = data.name
-        const id = data.id
-        const email = data.email
-        const github = data.github
-        const teamMember = new Engineer(name, id, email, github)
-        finalTeam.push(teamMember)
+        const engineer = new Engineer(data.enName, data.enId, data.enEmail, data.enGithub)
+        finalTeam.push(engineer)
+        console.log(engineer)
         addTeamMember()
     });
 }
@@ -117,38 +102,41 @@ const addIntern = () => {
     inquirer.prompt ([
         {
             type: 'input',
-            name: 'name',
+            name: 'inName',
             message: "What is your Intern's name?",
         },
         {
             type: 'input',
-            name: 'id',
+            name: 'inId',
             message: 'Please enter their ID number:',
         },
         {
             type: 'input',
-            name: 'email',
+            name: 'inEmail',
             message: 'Please enter their email:',
         },
         {
             type: 'input',
-            name: 'school',
+            name: 'inSchool',
             message: 'Please enter their School name:',
         },
     ])
     .then(function (data) {
-        const name = data.name
-        const id = data.id
-        const email = data.email
-        const school = data.school
-        const teamMember = new Intern(name, id, email, school)
-        finalTeam.push(teamMember)
+        const intern = new Intern(data.inName, data.inId, data.inEmail, data.inSchool)
+        finalTeam.push(intern)
+        console.log(intern)
         addTeamMember()
-    });
-    fs.writeFile('index.html', generateHTML(data), function(err){})
+    }); 
 }
   }
-//  function teamBuild(){
-//       fs.writeFile('index.html', generatedHTML(data), function(err){});
-//  }
-startingPrompt()
+
+    function teamBuild(){
+      fs.writeFileSync('index.html', generateHTML(finalTeam), function(err){ 
+        console.log("We hit an error", err)
+      });
+    };
+      
+    addManager();
+// }
+// teamProfile();
+
