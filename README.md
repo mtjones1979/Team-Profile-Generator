@@ -21,7 +21,9 @@
   [Video Link]()
   
   * Screenshots:
-  ![alt text]()
+  ![alt text](https://user-images.githubusercontent.com/74076318/111055434-6bb6a180-843b-11eb-95a7-431e981888ba.png)
+  ![alt text](https://user-images.githubusercontent.com/74076318/111055314-52f9bc00-843a-11eb-9887-dc73d738e46a.png)
+  ![alt text](https://user-images.githubusercontent.com/74076318/111055354-9f44fc00-843a-11eb-851e-6419dc7931bb.png)
 
   ## Installation
   NPM with dependencies from Jest, FS, and Inquirer
@@ -43,5 +45,5 @@
     
   *GitHub Repository Information:*
   * GitHub Username: mtjones1979
-  * [Repository Link](https://mtjones1979.github.io/Team-Profile-Generator/)
+  * [Repository Link](https://github.com/mtjones1979/Team-Profile-Generator)
   
